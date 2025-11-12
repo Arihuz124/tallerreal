@@ -19,7 +19,7 @@ public class ProductFactoryRegistry {
     // Registro
     public static ProductFactoryRegistry defaultRegistry() {
         ProductFactoryRegistry r = new ProductFactoryRegistry();
-        r.register("fisico", d -> new PhysicalProduct(
+        r.register("fisico", d -> new ProductoFisico(
                 (String) d.get("nombre"),
                 (Double) d.get("precio"),
                 (Double) d.get("peso"),
@@ -30,6 +30,12 @@ public class ProductFactoryRegistry {
                 (Double) d.get("precio"),
                 (Double) d.get("tamanoMB"),
                 (String) d.get("formato")
+        ));
+        r.register("panquekes", d -> new Panquekes(
+                (String) d.get("nombre"),
+                (Double) d.get("precio"),
+                (String) d.get("sabor"),
+                (Double) d.get("cantidad")
         ));
         return r;
     }
